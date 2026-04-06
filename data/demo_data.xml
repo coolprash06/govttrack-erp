@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Demo Categories -->
+        <record id="category_infrastructure" model="govttrack.category">
+            <field name="name">Infrastructure</field>
+            <field name="description">Roads, bridges, and public infrastructure projects</field>
+        </record>
+
+        <record id="category_education" model="govttrack.category">
+            <field name="name">Education</field>
+            <field name="description">Schools, colleges, and educational facilities</field>
+        </record>
+
+        <record id="category_healthcare" model="govttrack.category">
+            <field name="name">Healthcare</field>
+            <field name="description">Hospitals, clinics, and medical facilities</field>
+        </record>
+
+        <record id="category_water_sanitation" model="govttrack.category">
+            <field name="name">Water &amp; Sanitation</field>
+            <field name="description">Water supply, sewage, and sanitation projects</field>
+        </record>
+
+        <record id="category_energy" model="govttrack.category">
+            <field name="name">Energy</field>
+            <field name="description">Solar, hydro, and renewable energy projects</field>
+        </record>
+
+        <record id="category_rural" model="govttrack.category">
+            <field name="name">Rural Development</field>
+            <field name="description">Village-level development and infrastructure</field>
+        </record>
+
+        <record id="category_urban" model="govttrack.category">
+            <field name="name">Urban Development</field>
+            <field name="description">City-level development and smart cities</field>
+        </record>
+
+        <record id="category_public_lighting" model="govttrack.category">
+            <field name="name">Public Lighting</field>
+            <field name="description">Street lights, LED installations, and public illumination</field>
+        </record>
+
+        <record id="category_transport" model="govttrack.category">
+            <field name="name">Transport Infrastructure</field>
+            <field name="description">Bus shelters, metro stations, and transport facilities</field>
+        </record>
+
+        <record id="category_community" model="govttrack.category">
+            <field name="name">Community Facilities</field>
+            <field name="description">Parks, community centers, and public spaces</field>
+        </record>
+
+        <record id="category_public_health" model="govttrack.category">
+            <field name="name">Public Health</field>
+            <field name="description">Health centers, vaccination drives, and medical outreach</field>
+        </record>
+
+        <record id="category_sanitation" model="govttrack.category">
+            <field name="name">Sanitation</field>
+            <field name="description">Public toilets, waste management, and sanitation facilities</field>
+        </record>
+
+        <!-- Demo Constituencies -->
+        <record id="constituency_delhi_central" model="govttrack.constituency">
+            <field name="name">Delhi Central</field>
+            <field name="state">Delhi</field>
+            <field name="district">Central Delhi</field>
+            <field name="population">1500000</field>
+            <field name="mp_name">Rajesh Kumar</field>
+            <field name="mla_name">Priya Sharma</field>
+            <field name="contact_info">contact@delhicentral.gov.in</field>
+        </record>
+
+        <record id="constituency_mumbai_north" model="govttrack.constituency">
+            <field name="name">Mumbai North</field>
+            <field name="state">Maharashtra</field>
+            <field name="district">Mumbai</field>
+            <field name="population">2000000</field>
+            <field name="mp_name">Amit Singh</field>
+            <field name="mla_name">Sneha Patel</field>
+            <field name="contact_info">contact@mumbainorth.gov.in</field>
+        </record>
+
+        <record id="constituency_bangalore_south" model="govttrack.constituency">
+            <field name="name">Bangalore South</field>
+            <field name="state">Karnataka</field>
+            <field name="district">Bangalore</field>
+            <field name="population">1800000</field>
+            <field name="mp_name">Vijay Reddy</field>
+            <field name="mla_name">Anjali Verma</field>
+            <field name="contact_info">contact@bangaloresouth.gov.in</field>
+        </record>
+
+        <record id="constituency_kolkata_east" model="govttrack.constituency">
+            <field name="name">Kolkata East</field>
+            <field name="state">West Bengal</field>
+            <field name="district">Kolkata</field>
+            <field name="population">1600000</field>
+            <field name="mp_name">Subrata Mukherjee</field>
+            <field name="mla_name">Dipika Ghosh</field>
+            <field name="contact_info">contact@kolkataeast.gov.in</field>
+        </record>
+
+        <record id="constituency_trivandrum" model="govttrack.constituency">
+            <field name="name">Trivandrum</field>
+            <field name="state">Kerala</field>
+            <field name="district">Thiruvananthapuram</field>
+            <field name="population">1400000</field>
+            <field name="mp_name">Shashi Tharoor</field>
+            <field name="mla_name">Kavya Nair</field>
+            <field name="contact_info">contact@trivandrum.gov.in</field>
+        </record>
+
+        <record id="constituency_hyderabad_west" model="govttrack.constituency">
+            <field name="name">Hyderabad West</field>
+            <field name="state">Telangana</field>
+            <field name="district">Hyderabad</field>
+            <field name="population">1700000</field>
+            <field name="mp_name">Kiran Reddy</field>
+            <field name="mla_name">Meera Joshi</field>
+            <field name="contact_info">contact@hyderabadwest.gov.in</field>
+        </record>
+
+        <record id="constituency_chennai_central" model="govttrack.constituency">
+            <field name="name">Chennai Central</field>
+            <field name="state">Tamil Nadu</field>
+            <field name="district">Chennai</field>
+            <field name="population">1900000</field>
+            <field name="mp_name">Arun Kumar</field>
+            <field name="mla_name">Latha Ravi</field>
+            <field name="contact_info">contact@chennaicentral.gov.in</field>
+        </record>
+
+        <record id="constituency_jaipur_rural" model="govttrack.constituency">
+            <field name="name">Jaipur Rural</field>
+            <field name="state">Rajasthan</field>
+            <field name="district">Jaipur</field>
+            <field name="population">1200000</field>
+            <field name="mp_name">Rajendra Singh</field>
+            <field name="mla_name">Sunita Chauhan</field>
+            <field name="contact_info">contact@jaipurrural.gov.in</field>
+        </record>
+
+        <record id="constituency_ahmedabad_east" model="govttrack.constituency">
+            <field name="name">Ahmedabad East</field>
+            <field name="state">Gujarat</field>
+            <field name="district">Ahmedabad</field>
+            <field name="population">1600000</field>
+            <field name="mp_name">Mahesh Patel</field>
+            <field name="mla_name">Rekha Shah</field>
+            <field name="contact_info">contact@ahmedabadeast.gov.in</field>
+        </record>
+
+        <record id="constituency_lucknow_north" model="govttrack.constituency">
+            <field name="name">Lucknow North</field>
+            <field name="state">Uttar Pradesh</field>
+            <field name="district">Lucknow</field>
+            <field name="population">1800000</field>
+            <field name="mp_name">Vivek Singh</field>
+            <field name="mla_name">Poonam Yadav</field>
+            <field name="contact_info">contact@lucknownorth.gov.in</field>
+        </record>
+
+        <!-- Demo Projects -->
+        <!-- DELAYED PROJECT (Critical Alert) -->
+        <record id="project_road_construction" model="govttrack.project">
+            <field name="name">National Highway Expansion - NH-1</field>
+            <field name="description">Expansion of NH-1 from 4 lanes to 6 lanes near Delhi</field>
+            <field name="constituency_id" ref="constituency_delhi_central"/>
+            <field name="category_id" ref="category_infrastructure"/>
+            <field name="budget">500000000</field>
+            <field name="allocated_amount">450000000</field>
+            <field name="spent_amount">200000000</field>
+            <field name="start_date">2023-06-01</field>
+            <field name="end_date">2024-12-31</field>
+            <field name="status">in_progress</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Foundation work completed. Road construction in progress. Facing delays due to monsoon.</field>
+        </record>
+
+        <!-- IN PROGRESS PROJECT -->
+        <record id="project_school_building" model="govttrack.project">
+            <field name="name">New Government School - Mumbai</field>
+            <field name="description">Construction of 1000-student capacity school with modern facilities</field>
+            <field name="constituency_id" ref="constituency_mumbai_north"/>
+            <field name="category_id" ref="category_education"/>
+            <field name="budget">150000000</field>
+            <field name="allocated_amount">140000000</field>
+            <field name="spent_amount">90000000</field>
+            <field name="start_date">2024-03-01</field>
+            <field name="end_date">2025-08-31</field>
+            <field name="status">in_progress</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Building structure 70% completed. Interior work ongoing. On schedule.</field>
+        </record>
+
+        <!-- COMPLETED PROJECT -->
+        <record id="project_water_treatment" model="govttrack.project">
+            <field name="name">Water Treatment Plant - Bangalore</field>
+            <field name="description">Advanced water treatment facility for 500,000 residents</field>
+            <field name="constituency_id" ref="constituency_bangalore_south"/>
+            <field name="category_id" ref="category_water_sanitation"/>
+            <field name="budget">200000000</field>
+            <field name="allocated_amount">200000000</field>
+            <field name="spent_amount">198000000</field>
+            <field name="start_date">2023-01-15</field>
+            <field name="end_date">2024-09-30</field>
+            <field name="actual_completion_date">2024-09-15</field>
+            <field name="status">completed</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Project completed ahead of schedule. All quality checks passed.</field>
+        </record>
+
+        <!-- CRITICAL DELAYED PROJECT -->
+        <record id="project_hospital_extension" model="govttrack.project">
+            <field name="name">Hospital Emergency Ward Extension - Kolkata</field>
+            <field name="description">Emergency ward expansion for Government Medical College Hospital</field>
+            <field name="constituency_id" ref="constituency_kolkata_east"/>
+            <field name="category_id" ref="category_healthcare"/>
+            <field name="budget">120000000</field>
+            <field name="allocated_amount">100000000</field>
+            <field name="spent_amount">45000000</field>
+            <field name="start_date">2023-08-01</field>
+            <field name="end_date">2024-08-31</field>
+            <field name="status">in_progress</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Work stalled due to contractor issues. New contractor appointed. Currently 30% complete.</field>
+        </record>
+
+        <!-- RECENTLY COMPLETED PROJECT -->
+        <record id="project_solar_installation" model="govttrack.project">
+            <field name="name">Solar Power Installation - Trivandrum</field>
+            <field name="description">10MW solar installation for government buildings and offices</field>
+            <field name="constituency_id" ref="constituency_trivandrum"/>
+            <field name="category_id" ref="category_energy"/>
+            <field name="budget">80000000</field>
+            <field name="allocated_amount">80000000</field>
+            <field name="spent_amount">79500000</field>
+            <field name="start_date">2024-01-01</field>
+            <field name="end_date">2024-09-30</field>
+            <field name="actual_completion_date">2024-09-25</field>
+            <field name="status">completed</field>
+            <field name="priority">medium</field>
+            <field name="progress_notes">Project completed successfully. Expected to save ₹2Cr annually on electricity.</field>
+        </record>
+
+        <!-- UNDER REVIEW PROJECT -->
+        <record id="project_village_roads" model="govttrack.project">
+            <field name="name">Village Roads Connectivity Program - Rural Delhi</field>
+            <field name="description">Construction of 50km of village roads connecting to main highway</field>
+            <field name="constituency_id" ref="constituency_delhi_central"/>
+            <field name="category_id" ref="category_rural"/>
+            <field name="budget">250000000</field>
+            <field name="allocated_amount">0</field>
+            <field name="spent_amount">0</field>
+            <field name="start_date">2025-01-01</field>
+            <field name="end_date">2025-12-31</field>
+            <field name="status">under_review</field>
+            <field name="priority">medium</field>
+            <field name="progress_notes">Awaiting final approval from state government. Survey and planning completed.</field>
+        </record>
+
+        <!-- APPROVED PROJECT (Recently Approved) -->
+        <record id="project_metro_station" model="govttrack.project">
+            <field name="name">Metro Railway Station - Bangalore</field>
+            <field name="description">New metro station in tech corridor with integrated shopping mall</field>
+            <field name="constituency_id" ref="constituency_bangalore_south"/>
+            <field name="category_id" ref="category_urban"/>
+            <field name="budget">350000000</field>
+            <field name="allocated_amount">320000000</field>
+            <field name="spent_amount">0</field>
+            <field name="approval_date">2025-03-15</field>
+            <field name="start_date">2025-04-01</field>
+            <field name="end_date">2027-12-31</field>
+            <field name="status">approved</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Project approved by state cabinet. Land acquisition complete. Ready to start construction.</field>
+        </record>
+
+        <!-- DELAYED PROJECT - Street Lighting -->
+        <record id="project_street_lighting" model="govttrack.project">
+            <field name="name">LED Street Lighting Upgrade - Hyderabad</field>
+            <field name="description">Replacement of 5000 conventional street lights with LED fixtures</field>
+            <field name="constituency_id" ref="constituency_hyderabad_west"/>
+            <field name="category_id" ref="category_public_lighting"/>
+            <field name="budget">22000000</field>
+            <field name="allocated_amount">20000000</field>
+            <field name="spent_amount">8000000</field>
+            <field name="start_date">2024-01-15</field>
+            <field name="end_date">2024-12-31</field>
+            <field name="status">in_progress</field>
+            <field name="priority">medium</field>
+            <field name="progress_notes">Installation delayed due to supply chain issues. 40% lights installed. Expected completion delay of 2 months.</field>
+        </record>
+
+        <!-- COMPLETED PROJECT - Bus Shelter -->
+        <record id="project_bus_shelter" model="govttrack.project">
+            <field name="name">Modern Bus Shelter Network - Chennai</field>
+            <field name="description">Construction of 50 modern bus shelters with digital displays</field>
+            <field name="constituency_id" ref="constituency_chennai_central"/>
+            <field name="category_id" ref="category_transport"/>
+            <field name="budget">45000000</field>
+            <field name="allocated_amount">45000000</field>
+            <field name="spent_amount">44000000</field>
+            <field name="start_date">2023-09-01</field>
+            <field name="end_date">2024-08-31</field>
+            <field name="actual_completion_date">2024-08-20</field>
+            <field name="status">completed</field>
+            <field name="priority">low</field>
+            <field name="progress_notes">All shelters completed with solar-powered displays. Citizen feedback positive.</field>
+        </record>
+
+        <!-- SUBMITTED PROJECT - Park Renovation -->
+        <record id="project_park_renovation" model="govttrack.project">
+            <field name="name">Central Park Renovation - Jaipur</field>
+            <field name="description">Complete renovation of 50-acre central park with modern amenities</field>
+            <field name="constituency_id" ref="constituency_jaipur_rural"/>
+            <field name="category_id" ref="category_community"/>
+            <field name="budget">75000000</field>
+            <field name="allocated_amount">0</field>
+            <field name="spent_amount">0</field>
+            <field name="start_date">2025-06-01</field>
+            <field name="end_date">2026-05-31</field>
+            <field name="status">submitted</field>
+            <field name="priority">medium</field>
+            <field name="progress_notes">Proposal submitted to municipal corporation. Awaiting technical approval.</field>
+        </record>
+
+        <!-- IN PROGRESS PROJECT - Health Center -->
+        <record id="project_health_center" model="govttrack.project">
+            <field name="name">Rural Health Center - Ahmedabad</field>
+            <field name="description">New 50-bed rural health center with telemedicine facilities</field>
+            <field name="constituency_id" ref="constituency_ahmedabad_east"/>
+            <field name="category_id" ref="category_public_health"/>
+            <field name="budget">85000000</field>
+            <field name="allocated_amount">80000000</field>
+            <field name="spent_amount">55000000</field>
+            <field name="start_date">2024-04-01</field>
+            <field name="end_date">2025-09-30</field>
+            <field name="status">in_progress</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Building construction 65% complete. Medical equipment procurement in progress.</field>
+        </record>
+
+        <!-- DELAYED PROJECT - Sanitation -->
+        <record id="project_sanitation_upgrade" model="govttrack.project">
+            <field name="name">Public Sanitation Facilities - Lucknow</field>
+            <field name="description">Construction of 100 public toilets and waste management system</field>
+            <field name="constituency_id" ref="constituency_lucknow_north"/>
+            <field name="category_id" ref="category_sanitation"/>
+            <field name="budget">30000000</field>
+            <field name="allocated_amount">28000000</field>
+            <field name="spent_amount">12000000</field>
+            <field name="start_date">2024-02-01</field>
+            <field name="end_date">2024-11-30</field>
+            <field name="status">in_progress</field>
+            <field name="priority">high</field>
+            <field name="progress_notes">Major delay due to land acquisition issues. Only 25 toilets completed. Project timeline extended by 3 months.</field>
+        </record>
+
+        <!-- Demo Grievances -->
+        <!-- UNRESOLVED - DELAY -->
+        <record id="grievance_road_delay" model="govttrack.grievance">
+            <field name="name">Road Construction Delay - Traffic Congestion</field>
+            <field name="project_id" ref="project_road_construction"/>
+            <field name="citizen_name">Ravi Sharma</field>
+            <field name="citizen_contact">ravi.sharma@email.com</field>
+            <field name="grievance_type">delay</field>
+            <field name="severity">high</field>
+            <field name="description">The NH-1 road construction has been delayed by 4 months. This is causing severe traffic congestion during peak hours. Commute time has doubled.</field>
+            <field name="status">under_review</field>
+            <field name="date_submitted">2024-10-15</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- UNRESOLVED - QUALITY ISSUE -->
+        <record id="grievance_school_quality" model="govttrack.grievance">
+            <field name="name">School Construction Quality Issue - Wall Cracks</field>
+            <field name="project_id" ref="project_school_building"/>
+            <field name="citizen_name">Meera Patel</field>
+            <field name="citizen_contact">meera.patel@email.com</field>
+            <field name="grievance_type">quality</field>
+            <field name="severity">high</field>
+            <field name="description">Poor quality materials used in school construction. Cracks appearing in walls and ceiling. Parents concerned about structural safety.</field>
+            <field name="status">new</field>
+            <field name="date_submitted">2024-10-20</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- RESOLVED - SAFETY ISSUE -->
+        <record id="grievance_hospital_safety" model="govttrack.grievance">
+            <field name="name">Hospital Ward - Safety Equipment Missing</field>
+            <field name="project_id" ref="project_hospital_extension"/>
+            <field name="citizen_name">Dr. Rajesh Gupta</field>
+            <field name="citizen_contact">rajesh.gupta@hospital.gov.in</field>
+            <field name="grievance_type">safety</field>
+            <field name="severity">high</field>
+            <field name="description">Emergency ward extension missing fire safety equipment and emergency exits during construction phase.</field>
+            <field name="status">resolved</field>
+            <field name="date_submitted">2024-09-10</field>
+            <field name="date_resolved">2024-09-18</field>
+            <field name="resolution_note">Safety equipment installed immediately. Fire department inspection passed.</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- UNRESOLVED - PUBLIC INCONVENIENCE -->
+        <record id="grievance_village_obstruction" model="govttrack.grievance">
+            <field name="name">Village Road Construction - Obstruction to Agricultural Access</field>
+            <field name="project_id" ref="project_village_roads"/>
+            <field name="citizen_name">Harjeet Singh</field>
+            <field name="citizen_contact">harjeet.singh@village.gov.in</field>
+            <field name="grievance_type">obstruction</field>
+            <field name="severity">medium</field>
+            <field name="description">Construction materials blocking agricultural fields. Farmers unable to access crops. Fencing incomplete.</field>
+            <field name="status">new</field>
+            <field name="date_submitted">2024-10-22</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- RESOLVED - ENVIRONMENTAL ISSUE -->
+        <record id="grievance_solar_environmental" model="govttrack.grievance">
+            <field name="name">Solar Installation - Environmental Impact Assessment</field>
+            <field name="project_id" ref="project_solar_installation"/>
+            <field name="citizen_name">Priya Nambiar</field>
+            <field name="citizen_contact">priya.nambiar@environment.org</field>
+            <field name="grievance_type">environmental</field>
+            <field name="severity">medium</field>
+            <field name="description">Solar panel installation on government buildings has altered local water drainage patterns. Causing water accumulation in nearby residential areas.</field>
+            <field name="status">resolved</field>
+            <field name="date_submitted">2024-08-15</field>
+            <field name="date_resolved">2024-09-05</field>
+            <field name="resolution_note">Drainage system redesigned. Mitigation measures implemented. No further water accumulation reported.</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- UNRESOLVED - LIGHTING OUTAGE -->
+        <record id="grievance_lighting_outage" model="govttrack.grievance">
+            <field name="name">Street Lighting Failure - Safety Concerns</field>
+            <field name="project_id" ref="project_street_lighting"/>
+            <field name="citizen_name">Suresh Reddy</field>
+            <field name="citizen_contact">suresh.reddy@email.com</field>
+            <field name="grievance_type">safety</field>
+            <field name="severity">high</field>
+            <field name="description">Multiple street lights not working in residential areas. Increased crime reports and accidents at night. Residents afraid to go out after dark.</field>
+            <field name="status">new</field>
+            <field name="date_submitted">2024-10-25</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- RESOLVED - BUS SHELTER ISSUE -->
+        <record id="grievance_bus_shelter" model="govttrack.grievance">
+            <field name="name">Bus Shelter Design - Accessibility Problems</field>
+            <field name="project_id" ref="project_bus_shelter"/>
+            <field name="citizen_name">Rama Krishnan</field>
+            <field name="citizen_contact">rama.krishnan@email.com</field>
+            <field name="grievance_type">accessibility</field>
+            <field name="severity">medium</field>
+            <field name="description">New bus shelters have steps that make them inaccessible for elderly and disabled passengers. No ramps provided.</field>
+            <field name="status">resolved</field>
+            <field name="date_submitted">2024-09-01</field>
+            <field name="date_resolved">2024-09-15</field>
+            <field name="resolution_note">Ramps installed at all 50 shelters. Accessibility audit completed and passed.</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- UNRESOLVED - PARK NOISE -->
+        <record id="grievance_park_noise" model="govttrack.grievance">
+            <field name="name">Park Renovation - Excessive Construction Noise</field>
+            <field name="project_id" ref="project_park_renovation"/>
+            <field name="citizen_name">Anita Sharma</field>
+            <field name="citizen_contact">anita.sharma@email.com</field>
+            <field name="grievance_type">environmental</field>
+            <field name="severity">medium</field>
+            <field name="description">Construction work in central park causing excessive noise pollution. Disturbing nearby residential areas and offices during work hours.</field>
+            <field name="status">under_review</field>
+            <field name="date_submitted">2024-10-28</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- UNRESOLVED - HEALTH CENTER DELAY -->
+        <record id="grievance_health_delay" model="govttrack.grievance">
+            <field name="name">Health Center Construction Delay - Medical Emergency</field>
+            <field name="project_id" ref="project_health_center"/>
+            <field name="citizen_name">Dr. Meera Singh</field>
+            <field name="citizen_contact">meera.singh@hospital.gov.in</field>
+            <field name="grievance_type">delay</field>
+            <field name="severity">high</field>
+            <field name="description">Rural health center construction delayed by 3 months. Local population has no access to emergency medical care. Patients traveling 50km for treatment.</field>
+            <field name="status">new</field>
+            <field name="date_submitted">2024-10-30</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+
+        <!-- RESOLVED - SANITATION BLOCKAGE -->
+        <record id="grievance_sanitation_blockage" model="govttrack.grievance">
+            <field name="name">Public Toilet Blockage - Health Hazard</field>
+            <field name="project_id" ref="project_sanitation_upgrade"/>
+            <field name="citizen_name">Raj Kumar</field>
+            <field name="citizen_contact">raj.kumar@email.com</field>
+            <field name="grievance_type">quality</field>
+            <field name="severity">high</field>
+            <field name="description">New public toilets frequently getting blocked. Poor drainage system design causing overflow and unhygienic conditions.</field>
+            <field name="status">resolved</field>
+            <field name="date_submitted">2024-09-20</field>
+            <field name="date_resolved">2024-10-05</field>
+            <field name="resolution_note">Drainage system redesigned and repaired. Regular maintenance schedule implemented.</field>
+            <field name="assigned_officer_id" ref="base.user_admin"/>
+        </record>
+    </data>
+</odoo>

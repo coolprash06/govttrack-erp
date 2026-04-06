@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Category Actions -->
+        <record id="govttrack_category_action" model="ir.actions.act_window">
+            <field name="name">Project Categories</field>
+            <field name="res_model">govttrack.category</field>
+            <field name="view_mode">list,form</field>
+            <field name="help">Manage project categories</field>
+        </record>
+
+        <!-- Category Tree View -->
+        <record id="govttrack_category_tree_view" model="ir.ui.view">
+            <field name="name">govttrack.category.tree</field>
+            <field name="model">govttrack.category</field>
+            <field name="arch" type="xml">
+                <list string="Categories">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="project_count" sum="Total"/>
+                    <field name="total_budget" sum="Total"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Category Form View -->
+        <record id="govttrack_category_form_view" model="ir.ui.view">
+            <field name="name">govttrack.category.form</field>
+            <field name="model">govttrack.category</field>
+            <field name="arch" type="xml">
+                <form string="Category">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                        </div>
+
+                        <!-- Category Stats Card -->
+                        <div class="o_snapshot_card">
+                            <div class="o_snapshot_row">
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Projects</div>
+                                    <div class="o_snapshot_value o_info">
+                                        <field name="project_count"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Budget</div>
+                                    <div class="o_snapshot_value o_success">
+                                        ₹<field name="total_budget"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Active</div>
+                                    <div class="o_snapshot_value o_warning">
+                                        <field name="active_project_count"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Completed</div>
+                                    <div class="o_snapshot_value o_success">
+                                        <field name="completed_project_count"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <group>
+                            <field name="description" nolabel="1" placeholder="Category description..."/>
+                        </group>
+
+                        <notebook>
+                            <page name="projects" string="Projects in This Category">
+                                <field name="project_ids" widget="one2many_list" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="status"/>
+                                        <field name="budget"/>
+                                        <field name="completion_percentage"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

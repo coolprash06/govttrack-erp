@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Grievance Actions -->
+        <record id="govttrack_grievance_action" model="ir.actions.act_window">
+            <field name="name">Grievances</field>
+            <field name="res_model">govttrack.grievance</field>
+            <field name="view_mode">list,form</field>
+            <field name="help">Manage citizen grievances</field>
+        </record>
+
+        <!-- Grievance Tree View -->
+        <record id="govttrack_grievance_tree_view" model="ir.ui.view">
+            <field name="name">govttrack.grievance.tree</field>
+            <field name="model">govttrack.grievance</field>
+            <field name="arch" type="xml">
+                <list string="Grievances">
+                    <field name="name"/>
+                    <field name="project_id"/>
+                    <field name="constituency_id"/>
+                    <field name="grievance_type"/>
+                    <field name="severity" widget="badge" decoration-danger="severity=='high'" decoration-warning="severity=='medium'" decoration-success="severity=='low'"/>
+                    <field name="status" widget="badge" decoration-info="status=='new'" decoration-warning="status=='under_review'" decoration-success="status=='resolved'"/>
+                    <field name="assigned_officer_id"/>
+                    <field name="date_submitted"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Grievance Form View -->
+        <record id="govttrack_grievance_form_view" model="ir.ui.view">
+            <field name="name">govttrack.grievance.form</field>
+            <field name="model">govttrack.grievance</field>
+            <field name="arch" type="xml">
+                <form string="Grievance">
+                    <header>
+                        <field name="status" widget="statusbar" statusbar_visible="new,under_review,resolved,closed"/>
+                        <button name="action_review" string="Review" type="object" modifiers="{'invisible': [('status', '!=', 'new')]}" class="btn-primary"/>
+                        <button name="action_resolve" string="Resolve" type="object" modifiers="{'invisible': [('status', '!=', 'under_review')]}" class="btn-success"/>
+                        <button name="action_close" string="Close" type="object" modifiers="{'invisible': [('status', '!=', 'resolved')]}" class="btn-secondary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                            <p class="o_text_muted">
+                                <field name="project_id" class="o_text_muted"/> • 
+                                <field name="grievance_type" class="o_text_muted"/>
+                            </p>
+                        </div>
+
+                        <!-- Grievance Alert Card -->
+                        <div class="o_snapshot_card">
+                            <div class="o_snapshot_row">
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Severity</div>
+                                    <div class="o_snapshot_value">
+                                        <field name="severity"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Status</div>
+                                    <div class="o_snapshot_value o_info">
+                                        <field name="status"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Days Open</div>
+                                    <div class="o_snapshot_value">
+                                        <field name="sla_days"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Deadline</div>
+                                    <div class="o_snapshot_value o_warning">
+                                        <field name="response_deadline"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <group string="Grievance Details">
+                            <group>
+                                <field name="project_id"/>
+                                <field name="constituency_id"/>
+                                <field name="grievance_type"/>
+                                <field name="severity"/>
+                            </group>
+                            <group>
+                                <field name="date_submitted"/>
+                                <field name="assigned_officer_id"/>
+                                <field name="response_deadline" readonly="1"/>
+                                <field name="sla_days" readonly="1"/>
+                            </group>
+                        </group>
+
+                        <group string="Citizen Information">
+                            <group>
+                                <field name="citizen_name"/>
+                                <field name="citizen_contact"/>
+                            </group>
+                        </group>
+
+                        <group string="Description">
+                            <field name="description" nolabel="1" placeholder="Detailed grievance description..."/>
+                        </group>
+
+                        <group string="Resolution">
+                            <group>
+                                <field name="date_resolved"/>
+                            </group>
+                            <group>
+                                <field name="resolution_note" nolabel="1" placeholder="Resolution details..."/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

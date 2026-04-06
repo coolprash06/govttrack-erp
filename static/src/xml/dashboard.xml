@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="govttrack_erp.dashboard" owl="1">
+        <div class="container-fluid py-4 bg-light min-vh-100">
+            <h1 class="mb-4">GovtTrack ERP Dashboard</h1>
+            
+            <div class="row g-4 mb-4" t-if="state.data">
+                <!-- KPI Cards -->
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 border-start border-primary border-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted text-uppercase fw-bold">Total Projects</h6>
+                            <h2 class="display-5 fw-bold text-dark mb-0">
+                                <t t-esc="state.data.total_projects or 0"/>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 border-start border-info border-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted text-uppercase fw-bold">In Progress</h6>
+                            <h2 class="display-5 fw-bold text-info mb-0">
+                                <t t-esc="state.data.in_progress_count or 0"/>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 border-start border-danger border-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted text-uppercase fw-bold">Delayed Projects</h6>
+                            <h2 class="display-5 fw-bold text-danger mb-0">
+                                <t t-esc="state.data.delayed_count or 0"/>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 shadow-sm border-0 border-start border-warning border-4">
+                        <div class="card-body">
+                            <h6 class="card-title text-muted text-uppercase fw-bold">Open Grievances</h6>
+                            <h2 class="display-5 fw-bold text-warning mb-0">
+                                <t t-esc="state.data.open_grievance_count or 0"/>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4" t-if="state.data">
+                <!-- Financial Summary -->
+                <div class="col-md-12">
+                    <div class="card shadow-sm border-0 mb-4">
+                        <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
+                            <h5 class="card-title">Financial Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="text-muted">Total Budget</h6>
+                                    <h3 class="fw-bold"><t t-esc="state.data.total_budget_formatted or '0'"/></h3>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="text-muted">Total Spent</h6>
+                                    <h3 class="fw-bold text-success"><t t-esc="state.data.total_spent_formatted or '0'"/></h3>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <h6 class="text-muted">Budget Utilization</h6>
+                                    <h3 class="fw-bold text-primary"><t t-esc="state.data.budget_utilization_percent or 0"/>%</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delayed Projects Table -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white border-bottom-0 pt-4">
+                            <h5 class="card-title text-danger">Top Delayed Projects</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Project</th>
+                                            <th>Constituency</th>
+                                            <th>Delay (Days)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="state.data.delayed_projects or []" t-as="project" t-key="project.name">
+                                            <td class="fw-bold"><t t-esc="project.name"/></td>
+                                            <td><t t-esc="project.constituency"/></td>
+                                            <td><span class="badge bg-danger rounded-pill"><t t-esc="project.delay_days"/> days</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Grievances Table -->
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-white border-bottom-0 pt-4">
+                            <h5 class="card-title text-warning">Recent Grievances</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Grievance</th>
+                                            <th>Project</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="state.data.recent_grievances or []" t-as="grievance" t-key="grievance.name">
+                                            <td class="fw-bold"><t t-esc="grievance.name"/></td>
+                                            <td><t t-esc="grievance.project"/></td>
+                                            <td><span class="badge bg-secondary rounded-pill"><t t-esc="grievance.status"/></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div t-if="!state.data or Object.keys(state.data).length === 0" class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

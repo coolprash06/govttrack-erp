@@ -1,0 +1,1213 @@
+/* ====== DASHBOARD LAYOUT ====== */
+.o_govttrack_dashboard {
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f3f8 100%);
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ====== DASHBOARD HEADER ====== */
+.o_dashboard_header {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(47, 105, 255, 0.08);
+}
+
+.o_dashboard_header_content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.o_dashboard_title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.o_dashboard_subtitle {
+    font-size: 1rem;
+    color: #718096;
+    margin: 0.5rem 0 0 0;
+    font-weight: 400;
+}
+
+/* ====== KPI SECTION ====== */
+.o_kpi_section {
+    margin-bottom: 3rem;
+}
+
+.o_kpi_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.o_kpi_card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.o_kpi_card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.o_kpi_card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.o_kpi_icon {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 0.75rem;
+    flex-shrink: 0;
+}
+
+.o_kpi_blue .o_kpi_icon {
+    background: rgba(47, 105, 255, 0.1);
+    color: #2f69ff;
+    border-left: 4px solid #2f69ff;
+}
+
+.o_kpi_blue {
+    border-left-color: #2f69ff;
+}
+
+.o_kpi_progress .o_kpi_icon {
+    background: rgba(66, 153, 225, 0.1);
+    color: #4299e1;
+}
+
+.o_kpi_progress {
+    border-left-color: #4299e1;
+}
+
+.o_kpi_danger .o_kpi_icon {
+    background: rgba(217, 63, 63, 0.1);
+    color: #d93f3f;
+}
+
+.o_kpi_danger {
+    border-left-color: #d93f3f;
+}
+
+.o_kpi_success .o_kpi_icon {
+    background: rgba(26, 167, 96, 0.1);
+    color: #1aa760;
+}
+
+.o_kpi_success {
+    border-left-color: #1aa760;
+}
+
+.o_kpi_warning .o_kpi_icon {
+    background: rgba(255, 159, 26, 0.1);
+    color: #ff9f1a;
+}
+
+.o_kpi_warning {
+    border-left-color: #ff9f1a;
+}
+
+.o_kpi_content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.o_kpi_value {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #1a202c;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.o_kpi_label {
+    font-size: 0.875rem;
+    color: #718096;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ====== DASHBOARD GRID ====== */
+.o_dashboard_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+@media (max-width: 1200px) {
+    .o_dashboard_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.o_dashboard_col_left,
+.o_dashboard_col_right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* ====== SECTION CARDS ====== */
+.o_section_card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.o_section_card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.o_section_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f3f8;
+}
+
+.o_section_title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.o_section_title i {
+    font-size: 1.5rem;
+    color: #2f69ff;
+}
+
+.o_alert_badge {
+    background: #d93f3f;
+    color: white;
+    border-radius: 2rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.o_view_all {
+    color: #2f69ff;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.o_view_all:hover {
+    color: #1e42b0;
+    text-decoration: underline;
+}
+
+/* ====== CRITICAL ALERTS SECTION ====== */
+.o_critical_alerts {
+    border-left: 4px solid #d93f3f;
+    background: linear-gradient(to bottom right, #ffffff 0%, rgba(217, 63, 63, 0.01) 100%);
+}
+
+.o_alerts_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.o_alert_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem;
+    background: #f9fafb;
+    border-radius: 0.75rem;
+    border-left: 3px solid #d93f3f;
+    transition: all 0.2s;
+}
+
+.o_alert_item:hover {
+    background: white;
+    border-left-color: #a62d2d;
+    box-shadow: inset 0 0 0 1px #f0f3f8;
+}
+
+.o_alert_left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.o_alert_indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.o_alert_critical {
+    background: #d93f3f;
+    box-shadow: 0 0 0 4px rgba(217, 63, 63, 0.2);
+}
+
+.o_alert_info {
+    flex: 1;
+    min-width: 0;
+}
+
+.o_alert_title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.25rem;
+}
+
+.o_alert_meta {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.o_alert_right {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.o_alert_delay_days {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.o_delay_number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #d93f3f;
+}
+
+.o_delay_unit {
+    font-size: 0.75rem;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.o_empty_state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #a0aec0;
+}
+
+.o_empty_state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #cbd5e0;
+}
+
+.o_empty_state p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* ====== FINANCIAL SECTION ====== */
+.o_financial_section {
+    border-left: 4px solid #1aa760;
+}
+
+.o_financial_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .o_financial_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.o_financial_item {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f5f8 100%);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.o_financial_label {
+    display: block;
+    font-size: 0.85rem;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.o_financial_value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1a202c;
+}
+
+.o_financial_value.o_spent {
+    color: #ed8936;
+}
+
+.o_financial_value.o_remaining {
+    color: #1aa760;
+}
+
+/* ====== PROGRESS BAR ====== */
+.o_progress_bar_container {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+.o_progress_bar_label {
+    font-size: 0.875rem;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.o_progress_bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+}
+
+.o_progress_fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2f69ff 0%, #4299e1 100%);
+    border-radius: 1rem;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.o_progress_label {
+    font-size: 0.85rem;
+    color: #2f69ff;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* ====== GRIEVANCES SECTION ====== */
+.o_grievances_section {
+    border-left: 4px solid #ff9f1a;
+}
+
+.o_grievances_list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.o_grievance_item {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: #f9fafb;
+    border-radius: 0.75rem;
+    border-left: 3px solid #ff9f1a;
+    transition: all 0.2s;
+}
+
+.o_grievance_item:hover {
+    background: white;
+    box-shadow: inset 0 0 0 1px #f0f3f8;
+}
+
+.o_grievance_left {
+    flex-shrink: 0;
+}
+
+.o_grievance_icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 159, 26, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff9f1a;
+    font-size: 1.25rem;
+}
+
+.o_grievance_middle {
+    flex: 1;
+    min-width: 0;
+}
+
+.o_grievance_subject {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.25rem;
+}
+
+.o_grievance_meta {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.o_grievance_right {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+.o_status_badge {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.o_status_new {
+    background: rgba(217, 63, 63, 0.1);
+    color: #d93f3f;
+}
+
+.o_status_under_review {
+    background: rgba(255, 159, 26, 0.1);
+    color: #ff9f1a;
+}
+
+.o_status_resolved {
+    background: rgba(26, 167, 96, 0.1);
+    color: #1aa760;
+}
+
+.o_status_closed {
+    background: rgba(113, 128, 150, 0.1);
+    color: #718096;
+}
+
+/* ====== STATUS SECTION ====== */
+.o_status_section {
+    border-left: 4px solid #9f7aea;
+}
+
+.o_status_items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.o_status_item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.o_status_bar {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.o_status_draft {
+    background: #cbd5e0;
+}
+
+.o_status_submitted {
+    background: #4299e1;
+}
+
+.o_status_approved {
+    background: #9f7aea;
+}
+
+.o_status_progress {
+    background: #ed8936;
+}
+
+.o_status_completed {
+    background: #1aa760;
+}
+
+.o_status_label {
+    flex: 1;
+    font-size: 0.95rem;
+    color: #1a202c;
+    font-weight: 500;
+}
+
+.o_status_count {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1a202c;
+}
+
+/* ====== CATEGORY SECTION ====== */
+.o_category_section {
+    border-left: 4px solid #4299e1;
+}
+
+.o_category_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.o_category_item {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f5f8 100%);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+}
+
+.o_category_item:hover {
+    border-color: #4299e1;
+    box-shadow: 0 4px 12px rgba(66, 153, 225, 0.1);
+    background: white;
+}
+
+.o_category_name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+}
+
+.o_category_stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.o_category_stats span {
+    color: #718096;
+}
+
+.o_category_budget {
+    color: #2f69ff;
+    font-weight: 600;
+}
+
+/* ====== KANBAN CARD STYLES ====== */
+.o_govttrack_card {
+    border-radius: 0.8rem;
+    border: 1px solid #dde2ea;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    padding: 0.9rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+}
+
+.o_govttrack_card_header {
+    margin-bottom: 0.75rem;
+}
+
+.o_govttrack_tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.o_govttrack_card_status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.o_govttrack_card_metrics,
+.o_govttrack_card_budget {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.o_govttrack_card_metrics div,
+.o_govttrack_card_budget div {
+    font-size: 0.92rem;
+}
+
+.o_govttrack_card_budget div {
+    color: #4f5d82;
+}
+
+.o_badge {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.o_badge.o_badge_info {
+    background-color: #2f69ff;
+    color: #ffffff;
+}
+
+.o_badge.o_badge_success {
+    background-color: #1aa760;
+    color: #ffffff;
+}
+
+.o_badge.o_badge_warning {
+    background-color: #ff9f1a;
+    color: #1c1c1c;
+}
+
+.o_badge.o_badge_danger {
+    background-color: #d93f3f;
+    color: #ffffff;
+}
+
+.o_badge.o_badge_secondary {
+    background-color: #cbd5e0;
+    color: #2d3748;
+}
+
+/* ============================================================
+   KANBAN CARDS - PROFESSIONAL PREMIUM STYLING
+   ============================================================ */
+
+.o_govttrack_card {
+    border-radius: 1rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    padding: 0;
+    background: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.o_govttrack_card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+    border-color: #cbd5e0;
+}
+
+.o_govttrack_card_critical {
+    border-left: 4px solid #d93f3f;
+    background: linear-gradient(to right, rgba(217, 63, 63, 0.02) 0%, white 10%);
+}
+
+.o_govttrack_card_top_bar {
+    background: #d93f3f;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.oe_kanban_content {
+    padding: 1.5rem;
+}
+
+.o_govttrack_card_header {
+    margin-bottom: 1rem;
+}
+
+.o_govttrack_card_header h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a202c;
+    line-height: 1.3;
+}
+
+.o_govttrack_card_badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.o_govttrack_card_badges .o_badge {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.65rem;
+}
+
+.o_govttrack_card_indicators {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: flex-start;
+}
+
+.o_status_indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.o_status_good { 
+    background: rgba(26, 167, 96, 0.15); 
+    color: #1aa760; 
+}
+
+.o_status_warning { 
+    background: rgba(255, 159, 26, 0.15); 
+    color: #ff9f1a; 
+}
+
+.o_status_critical { 
+    background: rgba(217, 63, 63, 0.15); 
+    color: #d93f3f; 
+}
+
+.o_govttrack_card_progress {
+    margin-bottom: 1.25rem;
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
+
+.o_progress_label {
+    font-size: 0.8rem;
+    color: #718096;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.o_progress_bar {
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.o_progress_fill {
+    height: 100%;
+    background: linear-gradient(90deg, #2f69ff 0%, #4299e1 100%);
+    border-radius: 3px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.o_progress_value {
+    font-size: 0.85rem;
+    color: #2f69ff;
+    font-weight: 700;
+    text-align: right;
+}
+
+.o_govttrack_card_metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.o_metric_item {
+    display: flex;
+    flex-direction: column;
+    background: #f9fafb;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border-left: 3px solid #e2e8f0;
+}
+
+.o_metric_label {
+    font-size: 0.75rem;
+    color: #718096;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+
+.o_metric_value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+.o_metric_warning { 
+    color: #ff9f1a; 
+}
+
+.o_metric_danger { 
+    color: #d93f3f; 
+}
+
+.o_govttrack_card_financial {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f5f8 100%);
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+}
+
+.o_financial_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    white-space: nowrap;
+}
+
+.o_financial_row:last-child { 
+    margin-bottom: 0; 
+}
+
+.o_financial_label {
+    color: #718096;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.o_financial_value {
+    color: #1a202c;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.o_govttrack_card_status {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.o_badge_priority {
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.o_badge_high {
+    background: rgba(217, 63, 63, 0.1);
+    color: #d93f3f;
+}
+
+.o_badge_medium {
+    background: rgba(255, 159, 26, 0.1);
+    color: #ff9f1a;
+}
+
+.o_badge_low {
+    background: rgba(66, 153, 225, 0.1);
+    color: #4299e1;
+}
+
+/* ============================================================
+   MODERN LIST VIEW & TABLE STYLING
+   ============================================================ */
+
+.o_list_table {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.o_list_table thead {
+    background: linear-gradient(to bottom, #f9fafb 0%, #f3f5f8 100%);
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.o_list_table th {
+    padding: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.o_list_table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #2d3748;
+}
+
+.o_list_table tbody tr:hover {
+    background: #fafbfc;
+}
+
+.o_list_table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ============================================================
+   FORM VIEW - PREMIUM LAYOUT
+   ============================================================ */
+
+.o_form_container {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 2rem;
+}
+
+.o_form_header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f3f8;
+}
+
+.o_form_title {
+    flex: 1;
+}
+
+.o_form_title h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0;
+}
+
+.o_form_title p {
+    font-size: 0.95rem;
+    color: #718096;
+    margin: 0.5rem 0 0 0;
+}
+
+.o_section {
+    margin-bottom: 2rem;
+}
+
+.o_section_title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #f0f3f8;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.o_field_group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.o_field {
+    display: flex;
+    flex-direction: column;
+}
+
+.o_field_label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.o_field_value {
+    font-size: 1rem;
+    color: #2d3748;
+    background: #f9fafb;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+/* ============================================================
+   STATUS BAR & WORKFLOW
+   ============================================================ */
+
+.o_form_statusbar {
+    display: flex;
+    gap: 1rem;
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.o_statusbar_item {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: white;
+    border: 1px solid #cbd5e0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #718096;
+    transition: all 0.2s;
+}
+
+.o_statusbar_item.o_active {
+    background: #2f69ff;
+    color: white;
+    border-color: #2f69ff;
+}
+
+.o_statusbar_item:hover {
+    border-color: #2f69ff;
+    color: #2f69ff;
+}
+
+/* ============================================================
+   ACCOUNTABILITY SNAPSHOT CARD (FOR PROJECT FORMS)
+   ============================================================ */
+
+.o_snapshot_card {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f5f8 100%);
+    border: 2px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.o_snapshot_row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.o_snapshot_row:last-child {
+    margin-bottom: 0;
+}
+
+.o_snapshot_item {
+    text-align: center;
+}
+
+.o_snapshot_label {
+    font-size: 0.8rem;
+    color: #718096;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.75rem;
+}
+
+.o_snapshot_value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1a202c;
+}
+
+.o_snapshot_value.o_danger { 
+    color: #d93f3f; 
+}
+
+.o_snapshot_value.o_warning { 
+    color: #ff9f1a; 
+}
+
+.o_snapshot_value.o_success { 
+    color: #1aa760; 
+}
+
+.o_snapshot_value.o_info { 
+    color: #2f69ff; 
+}
+
+/* ============================================================
+   ACCESSIBILITY & UTILITIES
+   ============================================================ */
+
+.o_text_muted { 
+    color: #718096; 
+}
+
+.o_text_danger { 
+    color: #d93f3f; 
+}
+
+.o_text_warning { 
+    color: #ff9f1a; 
+}
+
+.o_text_success { 
+    color: #1aa760; 
+}
+
+@media (max-width: 768px) {
+    .o_govttrack_dashboard { 
+        padding: 1rem; 
+    }
+    
+    .o_dashboard_title { 
+        font-size: 1.75rem; 
+    }
+    
+    .o_kpi_container { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .o_dashboard_grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .o_field_group { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .o_form_statusbar { 
+        flex-direction: column; 
+    }
+}

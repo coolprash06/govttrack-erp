@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Constituency Actions -->
+        <record id="govttrack_constituency_action" model="ir.actions.act_window">
+            <field name="name">Constituencies</field>
+            <field name="res_model">govttrack.constituency</field>
+            <field name="view_mode">list,form</field>
+            <field name="help">Manage constituencies</field>
+        </record>
+
+        <!-- Constituency Tree View -->
+        <record id="govttrack_constituency_tree_view" model="ir.ui.view">
+            <field name="name">govttrack.constituency.tree</field>
+            <field name="model">govttrack.constituency</field>
+            <field name="arch" type="xml">
+                <list string="Constituencies">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="mp_name"/>
+                    <field name="population"/>
+                    <field name="project_count"/>
+                    <field name="active_project_count"/>
+                    <field name="completed_project_count"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Constituency Form View -->
+        <record id="govttrack_constituency_form_view" model="ir.ui.view">
+            <field name="name">govttrack.constituency.form</field>
+            <field name="model">govttrack.constituency</field>
+            <field name="arch" type="xml">
+                <form string="Constituency">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                            <p class="o_text_muted"><field name="state"/> • <field name="district"/></p>
+                        </div>
+
+                        <!-- Constituency Stats Card -->
+                        <div class="o_snapshot_card">
+                            <div class="o_snapshot_row">
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Total Projects</div>
+                                    <div class="o_snapshot_value o_info">
+                                        <field name="project_count"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Active</div>
+                                    <div class="o_snapshot_value o_warning">
+                                        <field name="active_project_count"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Completed</div>
+                                    <div class="o_snapshot_value o_success">
+                                        <field name="completed_project_count"/>
+                                    </div>
+                                </div>
+                                <div class="o_snapshot_item">
+                                    <div class="o_snapshot_label">Total Budget</div>
+                                    <div class="o_snapshot_value o_success">
+                                        ₹<field name="total_budget"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <group string="Administrative Information">
+                            <group>
+                                <field name="state"/>
+                                <field name="district"/>
+                                <field name="population"/>
+                            </group>
+                            <group>
+                                <field name="mp_name" placeholder="Member of Parliament"/>
+                                <field name="mla_name" placeholder="Member of Legislative Assembly"/>
+                                <field name="contact_info" placeholder="Contact information"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page name="projects" string="Projects in This Constituency">
+                                <field name="project_ids" widget="one2many_list" nolabel="1">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="category_id"/>
+                                        <field name="status"/>
+                                        <field name="budget"/>
+                                        <field name="completion_percentage"/>
+                                        <field name="health_state"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Groups -->
+        <record id="group_govttrack_admin" model="res.groups">
+            <field name="name">GovtTrack Admin</field>
+            <field name="comment">Full access to GovtTrack ERP</field>
+        </record>
+
+        <record id="group_govttrack_project_manager" model="res.groups">
+            <field name="name">GovtTrack Project Manager</field>
+            <field name="comment">Approve and manage project lifecycles</field>
+        </record>
+
+        <record id="group_govttrack_field_officer" model="res.groups">
+            <field name="name">GovtTrack Field Officer</field>
+            <field name="comment">Update project progress and handle grievances</field>
+        </record>
+
+        <record id="group_govttrack_citizen_support" model="res.groups">
+            <field name="name">GovtTrack Citizen Support</field>
+            <field name="comment">Create and monitor citizen grievances</field>
+        </record>
+
+        <!-- Access Rights -->
+        <record id="access_govttrack_category" model="ir.model.access">
+            <field name="name">govttrack.category.access</field>
+            <field name="model_id" ref="model_govttrack_category"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <record id="access_govttrack_constituency" model="ir.model.access">
+            <field name="name">govttrack.constituency.access</field>
+            <field name="model_id" ref="model_govttrack_constituency"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <record id="access_govttrack_project" model="ir.model.access">
+            <field name="name">govttrack.project.access</field>
+            <field name="model_id" ref="model_govttrack_project"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+
+        <record id="access_govttrack_grievance" model="ir.model.access">
+            <field name="name">govttrack.grievance.access</field>
+            <field name="model_id" ref="model_govttrack_grievance"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read">1</field>
+            <field name="perm_write">1</field>
+            <field name="perm_create">1</field>
+            <field name="perm_unlink">1</field>
+        </record>
+    </data>
+</odoo>

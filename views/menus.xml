@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main Menu -->
+        <menuitem id="govttrack_erp_menu_root" name="GovtTrack ERP" sequence="10"/>
+
+        <!-- Dashboard Menu (Top) -->
+        <menuitem id="govttrack_dashboard_menu" name="Dashboard" parent="govttrack_erp_menu_root" action="govttrack_erp.govttrack_dashboard_action" sequence="5"/>
+
+        <!-- Projects Menu -->
+        <menuitem id="govttrack_projects_menu" name="Projects" parent="govttrack_erp_menu_root" sequence="10"/>
+        <menuitem id="govttrack_projects_submenu" name="All Projects" parent="govttrack_projects_menu" action="govttrack_erp.govttrack_project_action" sequence="10"/>
+        <menuitem id="govttrack_categories_submenu" name="Categories" parent="govttrack_projects_menu" action="govttrack_erp.govttrack_category_action" sequence="20"/>
+        <menuitem id="govttrack_constituencies_submenu" name="Constituencies" parent="govttrack_projects_menu" action="govttrack_erp.govttrack_constituency_action" sequence="30"/>
+        <menuitem id="govttrack_analytics_menu" name="Analytics" parent="govttrack_erp_menu_root" action="govttrack_erp.govttrack_project_analytics_action" sequence="40"/>
+
+        <!-- Grievances Menu -->
+        <menuitem id="govttrack_grievances_menu" name="Grievances" parent="govttrack_erp_menu_root" action="govttrack_erp.govttrack_grievance_action" sequence="20"/>
+    </data>
+</odoo>
