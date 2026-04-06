@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <!-- Constituency Actions -->
@@ -90,7 +90,7 @@
                                         <field name="status"/>
                                         <field name="budget"/>
                                         <field name="completion_percentage"/>
-                                        <field name="health_state"/>
+                                        <field name="is_delayed"/>
                                     </list>
                                 </field>
                             </page>

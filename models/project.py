@@ -122,16 +122,6 @@ class GovttrackProject(models.Model):
             else:
                 record.completion_percentage = 0.0
 
-    @api.depends("is_delayed", "open_grievance_count")
-    def _compute_health_state(self):
-        for record in self:
-            if record.is_delayed:
-                record.health_state = 'critical'
-            elif record.open_grievance_count > 0:
-                record.health_state = 'warning'
-            else:
-                record.health_state = 'good'
-
     def action_draft(self):
         self.status = 'draft'
 
